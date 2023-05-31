@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# IDE
+.idea/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Flask
+instance/
+*.egg-info/
+*.egg
+
+# Testing
+htmlcov/
+.coverage
+.tox/
+nosetests.xml

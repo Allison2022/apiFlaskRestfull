@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: flask
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_DEBUG: 'True'
+      MONGO_INITDB_ROOT_USERNAME: erik1288
+      MONGO_INITDB_ROOT_PASSWORD: ingeniero010
