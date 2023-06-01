@@ -1,8 +1,9 @@
 version: "3.9"
+
 services:
   web:
     build:
-      context: .
+      context: ./docker/backend
       dockerfile: Dockerfile
     restart: always
     container_name: flask
@@ -14,3 +15,13 @@ services:
       FLASK_DEBUG: 'True'
       MONGO_INITDB_ROOT_USERNAME: erik1288
       MONGO_INITDB_ROOT_PASSWORD: ingeniero010
+
+  redis:
+    build:
+      context: ./docker/database
+      dockerfile: Dockerfile
+    restart: always
+    container_name: redis
+    volumes:
+      - ./docker/database/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
