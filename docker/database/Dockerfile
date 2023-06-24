@@ -1,9 +1,10 @@
 FROM redis:7.0.11
 
-LABEL maintainer="Erik Herazo <erickherazoj@gmail.com>"
+WORKDIR /data
 
-EXPOSE 6379
+RUN mkdir /redis_data
+RUN chmod 777 /redis_data
 
-COPY redis.conf /usr/local/etc/redis/redis.conf
+COPY . .
 
-CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]
+CMD ["redis-server", "--dir", "/redis_data"]
